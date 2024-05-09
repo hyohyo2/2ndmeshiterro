@@ -15,6 +15,10 @@
       <!--ログイン済みならtrue,していないならfalse-->
       <% if user_signed_in? %>
         <li>
+          <!--ログインしていたら投稿フォーム-->
+          <%= link_to "投稿フォーム", new_post_image_path %>
+        </li>
+        <li>
           <!--ログイン済みならログアウト表示-->
           <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
         </li>
@@ -28,8 +32,8 @@
         </li>
       <% end %>
     </header>
-    
-    
+
+
     <%= yield %>
   </body>
 </html>
