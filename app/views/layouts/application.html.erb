@@ -11,6 +11,25 @@
   </head>
 
   <body>
+    <header>
+      <!--ログイン済みならtrue,していないならfalse-->
+      <% if user_signed_in? %>
+        <li>
+          <!--ログイン済みならログアウト表示-->
+          <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+        </li>
+      <% else %>
+        <!--ログインしていないなら新規登録とログインを表示-->
+        <li>
+          <%= link_to "新規登録", new_user_registration_path %>
+        </li>
+        <li>
+          <%= link_to "ログイン", new_user_session_path %>
+        </li>
+      <% end %>
+    </header>
+    
+    
     <%= yield %>
   </body>
 </html>
